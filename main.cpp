@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <QFile>
+
 class CommonHelper
 {
 public:
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-//    CommonHelper::setStyle("G:/study/QT/betaEyes/style.qss");//设置style
+    //CommonHelper::setStyle("G:/study/QT/betaEyes/style.qss");//设置style
 
     MainWindow w;
     w.show();

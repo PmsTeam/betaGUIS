@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui\
+            multimedia\
+            multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,13 +27,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    home.cpp \
+    home_analysis.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    home.h \
+    home_analysis.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    home.ui \
+    home_analysis.ui
 
 DISTFILES += \
     style.qss

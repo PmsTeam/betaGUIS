@@ -24,365 +24,6 @@ background: rgb(50, 50, 50);</string>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="mainLayout">
-      <item row="0" column="0">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="6" column="2">
-         <widget class="QPushButton" name="summaryButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>视频摘要</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="pedestrianButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>行人检测</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="2">
-         <widget class="QPushButton" name="flowButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>流量统计</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="vehicleButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>车辆检测</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="3">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="2" column="1">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="5" column="2">
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="3" column="2">
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="0" rowspan="7">
-         <widget class="QListWidget" name="cameraWidget">
-          <property name="styleSheet">
-           <string notr="true">QWidget#cameraWidget {
-
-        border: 1px solid rgb(80, 80, 80);
-border-radius: 4px;
-}</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="1">
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="1" column="2">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>音量</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="playButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>播放/暂停</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>全屏</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" colspan="4">
-         <widget class="QWidget" name="videoWidget" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QWidget#videoWidget {
-
-        border: 1px solid rgb(80, 80, 80);
-border-radius: 4px;
-}</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QSlider" name="horizontalSlider">
-          <property name="styleSheet">
-           <string notr="true">QSlider:horizontal {
-        height: 20px;
-        background: transparent;
-        margin-top: 3px;
-        margin-bottom: 3px;
-}
-QSlider::handle:horizontal {
-        height: 20px;
-        min-width: 30px;
-        background: rgb(68, 69, 73);
-        margin-left: 15px;
-        margin-right: 15px;
-}
-QSlider::handle:horizontal:hover {
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item row="1" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -450,6 +91,424 @@ QGroupBox::title {
         border: 1px solid rgb(80, 80, 80);
 border-radius: 4px;
 }</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="3" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pedestrianButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>行人检测</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2">
+         <widget class="QPushButton" name="summaryButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>视频摘要</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="flowButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>流量统计</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="vehicleButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>车辆检测</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="5" column="2">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="openButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>测试文件</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" rowspan="7">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox {
+        font-size: 30px;
+        border: 1px solid rgb(80, 80, 80);
+        border-radius: 4px;
+        margin-top: 10px;
+}
+QGroupBox::title {
+        color: rgb(227, 234, 242);
+        top: -12px;
+        left: 10px;
+}</string>
+          </property>
+          <property name="title">
+           <string>视频信息</string>
+          </property>
+          <widget class="QWidget" name="gridLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>40</y>
+             <width>261</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>拍摄时间</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>视频名称</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>拍摄地点</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>视频时长</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="3" column="0">
+         <widget class="QPushButton" name="playButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>播放/暂停</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLabel" name="videoLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="fullButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="text">
+           <string>全屏</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QSlider" name="horizontalSlider">
+          <property name="styleSheet">
+           <string notr="true">QSlider:horizontal {
+        height: 20px;
+        background: transparent;
+        margin-top: 3px;
+        margin-bottom: 3px;
+}
+QSlider::handle:horizontal {
+        height: 20px;
+        min-width: 30px;
+        background: rgb(68, 69, 73);
+        margin-left: 15px;
+        margin-right: 15px;
+}
+QSlider::handle:horizontal:hover {
+        background: rgb(80, 80, 80);
+}</string>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
