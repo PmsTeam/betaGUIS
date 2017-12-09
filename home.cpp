@@ -13,7 +13,7 @@ Home::~Home()
     delete ui;
 }
 
-void Home::on_pushButton_2_clicked()
+void Home::on_pushButton_clicked()
 {
     emit display(1);
 }

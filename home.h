@@ -19,7 +19,7 @@ signals:
     void display(int number);
 
 private slots:
-    void on_pushButton_2_clicked();//点击视频分析
+    void on_pushButton_clicked();//点击视频分析
 
 private:
     Ui::Home *ui;
