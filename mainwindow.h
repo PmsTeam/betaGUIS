@@ -23,6 +23,7 @@ public:
     ~MainWindow();
 
     //播放视频的全局变量
+    QString videoPath;
     QVBoxLayout * layout_video;//布局
     QMediaPlayer * player;   //播放器
     QVideoWidget * videoWidget;   //视频播放控件
@@ -35,10 +36,14 @@ public:
     QTimer * timer;
     int maxValue = 1000;//设置进度条的最大值
 
+    QString title;
+    QString date;
 private slots:
     void on_openButton_clicked();
 
     void on_playButton_clicked();
+
+    void metaDataAvailableChanged(bool available);
 
 
 private:

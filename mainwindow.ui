@@ -67,6 +67,38 @@ QGroupBox::title {
           <property name="checkable">
            <bool>false</bool>
           </property>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>70</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(225, 225, 225);</string>
+           </property>
+           <property name="text">
+            <string>人数：</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(225, 225, 225);</string>
+           </property>
+           <property name="text">
+            <string>速率：</string>
+           </property>
+          </widget>
          </widget>
         </item>
         <item>
@@ -342,57 +374,61 @@ QGroupBox::title {
             </property>
             <item row="2" column="0">
              <widget class="QLabel" name="label_3">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
+              </property>
               <property name="text">
                <string>拍摄时间</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
-             <widget class="QLabel" name="label_8">
+            <item row="2" column="1">
+             <widget class="QLabel" name="videoTime">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string>无数据</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="label_6">
+            <item row="1" column="1">
+             <widget class="QLabel" name="videoLength">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
+              </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string>无数据</string>
               </property>
              </widget>
             </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
+              </property>
               <property name="text">
                <string>视频名称</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>TextLabel</string>
+            <item row="0" column="1">
+             <widget class="QLabel" name="videoName">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
               </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_7">
               <property name="text">
-               <string>拍摄地点</string>
+               <string>无数据</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);</string>
+              </property>
               <property name="text">
                <string>视频时长</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -442,7 +478,7 @@ QPushButton:enabled:pressed{
            </sizepolicy>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>无数据</string>
           </property>
          </widget>
         </item>
