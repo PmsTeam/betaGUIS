@@ -73,11 +73,12 @@ QGroupBox::title {
              <x>30</x>
              <y>70</y>
              <width>72</width>
-             <height>15</height>
+             <height>31</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(225, 225, 225);</string>
+            <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
            </property>
            <property name="text">
             <string>人数：</string>
@@ -89,11 +90,12 @@ QGroupBox::title {
              <x>30</x>
              <y>120</y>
              <width>72</width>
-             <height>15</height>
+             <height>31</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(225, 225, 225);</string>
+            <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
            </property>
            <property name="text">
             <string>速率：</string>
@@ -146,43 +148,24 @@ border-radius: 4px;
           </property>
          </spacer>
         </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="pedestrianButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>行人检测</string>
-          </property>
-         </widget>
-        </item>
         <item row="6" column="2">
          <widget class="QPushButton" name="summaryButton">
+          <property name="font">
+           <font>
+            <family>方正悠黑_510M</family>
+            <pointsize>12</pointsize>
+            <weight>7</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
         border-radius: 4px;
         border: none;
         width: 75px;
         height: 25px;
+font: 63 12pt &quot;方正悠黑_510M&quot;;
 }
 QPushButton:enabled {
         background: rgb(68, 69, 73);
@@ -197,21 +180,32 @@ QPushButton:enabled:hover{
 }
 QPushButton:enabled:pressed{
         background: rgb(80, 80, 80);
-}</string>
+}
+</string>
           </property>
           <property name="text">
            <string>视频摘要</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="2">
-         <widget class="QPushButton" name="flowButton">
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pedestrianButton">
+          <property name="font">
+           <font>
+            <family>方正悠黑_510M</family>
+            <pointsize>12</pointsize>
+            <weight>7</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
         border-radius: 4px;
         border: none;
         width: 75px;
         height: 25px;
+font: 63 12pt &quot;方正悠黑_510M&quot;;
 }
 QPushButton:enabled {
         background: rgb(68, 69, 73);
@@ -226,39 +220,11 @@ QPushButton:enabled:hover{
 }
 QPushButton:enabled:pressed{
         background: rgb(80, 80, 80);
-}</string>
+}
+</string>
           </property>
           <property name="text">
-           <string>流量统计</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="vehicleButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}</string>
-          </property>
-          <property name="text">
-           <string>车辆检测</string>
+           <string>行人检测</string>
           </property>
          </widget>
         </item>
@@ -314,6 +280,46 @@ QPushButton:enabled:pressed{
           </property>
           <property name="text">
            <string>测试文件</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="flowButton">
+          <property name="font">
+           <font>
+            <family>方正悠黑_510M</family>
+            <pointsize>12</pointsize>
+            <weight>7</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+font: 63 12pt &quot;方正悠黑_510M&quot;;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>流量统计</string>
           </property>
          </widget>
         </item>
@@ -375,7 +381,8 @@ QGroupBox::title {
             <item row="2" column="0">
              <widget class="QLabel" name="label_3">
               <property name="styleSheet">
-               <string notr="true">color: rgb(225, 225, 225);</string>
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
               </property>
               <property name="text">
                <string>拍摄时间</string>
@@ -405,7 +412,8 @@ QGroupBox::title {
             <item row="0" column="0">
              <widget class="QLabel" name="label">
               <property name="styleSheet">
-               <string notr="true">color: rgb(225, 225, 225);</string>
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
               </property>
               <property name="text">
                <string>视频名称</string>
@@ -425,7 +433,8 @@ QGroupBox::title {
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
               <property name="styleSheet">
-               <string notr="true">color: rgb(225, 225, 225);</string>
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
               </property>
               <property name="text">
                <string>视频时长</string>
@@ -436,12 +445,22 @@ QGroupBox::title {
           </widget>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item row="0" column="1">
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="3" column="0">
-         <widget class="QPushButton" name="playButton">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="vehicleButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>方正悠黑_510M</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
         border-radius: 4px;
@@ -462,7 +481,43 @@ QPushButton:enabled:hover{
 }
 QPushButton:enabled:pressed{
         background: rgb(80, 80, 80);
-}</string>
+}
+	font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
+          </property>
+          <property name="text">
+           <string>车辆检测</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="3" column="0">
+         <widget class="QPushButton" name="playButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+	font: 63 9pt &quot;方正悠黑_510M&quot;;
+}
+QPushButton:enabled {
+        background: rgb(68, 69, 73);
+        color: rgb(227, 234, 242);
+}
+QPushButton:!enabled {
+        background: rgb(100, 100, 100);
+        color: rgb(227, 234, 242);
+}
+QPushButton:enabled:hover{
+        background: rgb(85, 85, 85);
+}
+QPushButton:enabled:pressed{
+        background: rgb(80, 80, 80);
+}
+</string>
           </property>
           <property name="text">
            <string>播放/暂停</string>
@@ -502,6 +557,7 @@ QPushButton:enabled:pressed{
         border: none;
         width: 75px;
         height: 25px;
+	font: 63 9pt &quot;方正悠黑_510M&quot;;
 }
 QPushButton:enabled {
         background: rgb(68, 69, 73);
@@ -516,7 +572,8 @@ QPushButton:enabled:hover{
 }
 QPushButton:enabled:pressed{
         background: rgb(80, 80, 80);
-}</string>
+}
+</string>
           </property>
           <property name="text">
            <string>全屏</string>
@@ -618,7 +675,7 @@ QMenu::icon {
     <property name="title">
      <string>Open</string>
     </property>
-    <addaction name="action"/>
+    <addaction name="openVideos"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="styleSheet">
@@ -807,7 +864,7 @@ QMenu::icon {
     <string>关于我们</string>
    </property>
   </action>
-  <action name="action">
+  <action name="openVideos">
    <property name="text">
     <string>打开</string>
    </property>

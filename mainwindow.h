@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTimer>
+#include <QProcess>
 
 namespace Ui {
 class MainWindow;
@@ -38,13 +39,22 @@ public:
 
     QString title;
     QString date;
+
+    QProcess * core = new QProcess(this);
+
+signals:
+    void openVideo();
+
 private slots:
     void on_openButton_clicked();
+    void openVideoButton();
 
     void on_playButton_clicked();
 
     void metaDataAvailableChanged(bool available);
 
+
+    void on_pedestrianButton_clicked();
 
 private:
     Ui::MainWindow *ui;
