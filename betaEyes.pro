@@ -29,12 +29,21 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     home.cpp \
-    home_analysis.cpp
+    home_analysis.cpp \
+    home.cpp \
+    home_analysis.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    mytitlebar.cpp
 
 HEADERS += \
         mainwindow.h \
     home.h \
-    home_analysis.h
+    home_analysis.h \
+    home.h \
+    home_analysis.h \
+    mainwindow.h \
+    mytitlebar.h
 
 FORMS += \
         mainwindow.ui \
@@ -42,4 +51,8 @@ FORMS += \
     home_analysis.ui
 
 DISTFILES += \
-    style.qss
+    style.qss \
+    res/icon.ico \
+    res/qtdemo.rc
+
+RC_FILE = res/qtdemo.rc

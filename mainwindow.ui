@@ -10,6 +10,13 @@
     <height>738</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>方正悠黑_510M</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>

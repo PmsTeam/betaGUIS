@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <QProcess>
+#include <QDialog>
 
 namespace Ui {
 class MainWindow;
@@ -37,15 +38,19 @@ public:
     QTimer * timer;
     int maxValue = 1000;//设置进度条的最大值
 
-    QString title;
-    QString date;
+    QString videoTitle;
+    QString videoDate;
 
     QProcess * coreProcess = new QProcess(this);
+
+    QDialog *about = new QDialog;
+
+
 public slots:
     void openVideo();
+    void showAbout();
 
 private slots:
-    void on_openButton_clicked();
 
     void on_playButton_clicked();
 
