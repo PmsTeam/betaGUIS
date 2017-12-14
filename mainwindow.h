@@ -40,14 +40,12 @@ public:
     QString title;
     QString date;
 
-    QProcess * core = new QProcess(this);
-
-signals:
+    QProcess * coreProcess = new QProcess(this);
+public slots:
     void openVideo();
 
 private slots:
     void on_openButton_clicked();
-    void openVideoButton();
 
     void on_playButton_clicked();
 

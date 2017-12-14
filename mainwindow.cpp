@@ -11,15 +11,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->playButton->setEnabled(false);
     ui->fullButton->setEnabled(false);
 
+    connect(ui->actionOpen,SIGNAL(triggered(bool)),this,SLOT(openVideo()));
     connect(player,&QMediaPlayer::metaDataAvailableChanged,this,&MainWindow::metaDataAvailableChanged);
 }
 
 MainWindow::~MainWindow()
 {
+    if(coreProcess)
+        coreProcess->close();
+    delete coreProcess;
     delete ui;
 }
 
-void MainWindow::openVideoButton()
+void MainWindow::openVideo()
 {
     //选择视频文件
     videoPath = QFileDialog::getOpenFileName(this,tr("选择视频文件"),".",tr("视频格式(*.avi *.mp4 *.flv *.mkv *.wmv)"));
@@ -139,11 +143,12 @@ void MainWindow::metaDataAvailableChanged(bool available)
 
 void MainWindow::on_pedestrianButton_clicked()
 {
-    core->start("G:/study/QT/build-betaEyes-Desktop_Qt_5_9_2_MSVC2017_64bit-Debug/Tracking-t.exe");
-//    QString program = "/PeopleAndVehicleDetevtionTracking.exe";
-//    QStringList argument;
-//    arguments << "-p" << videoPath;
+    QString program = "G:/study/QT/build-betaEyes-Desktop_Qt_5_9_2_MSVC2017_64bit-Debug/Tracking-t.exe";
+    QStringList argument;
+    argument << "-p" << videoPath;
 
-//    core -> start(program,argument);
-//    core->waitForFinished();
+    coreProcess -> start(program,argument);
+    coreProcess -> waitForFinished();
+
+
 }
