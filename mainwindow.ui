@@ -74,39 +74,83 @@ QGroupBox::title {
           <property name="checkable">
            <bool>false</bool>
           </property>
-          <widget class="QLabel" name="label_4">
+          <widget class="QWidget" name="gridLayoutWidget_2">
            <property name="geometry">
             <rect>
-             <x>30</x>
+             <x>20</x>
              <y>70</y>
-             <width>72</width>
-             <height>31</height>
+             <width>331</width>
+             <height>191</height>
             </rect>
            </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(225, 225, 225);
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
 font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
-           </property>
-           <property name="text">
-            <string>人数：</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>120</y>
-             <width>72</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(225, 225, 225);
+              </property>
+              <property name="text">
+               <string>速率：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
 font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
-           </property>
-           <property name="text">
-            <string>速率：</string>
-           </property>
+              </property>
+              <property name="text">
+               <string>人数：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
+              </property>
+              <property name="text">
+               <string>车数：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="labelPeopleNumber">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="labelCarNumber">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="labelSpeed">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(225, 225, 225);
+font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -310,7 +354,7 @@ QPushButton:enabled:pressed{
 </string>
           </property>
           <property name="text">
-           <string>流量统计</string>
+           <string>人车检测</string>
           </property>
          </widget>
         </item>
@@ -392,7 +436,7 @@ QGroupBox::title {
             <rect>
              <x>0</x>
              <y>40</y>
-             <width>261</width>
+             <width>181</width>
              <height>271</height>
             </rect>
            </property>
@@ -412,7 +456,7 @@ font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLabel" name="videoTime">
+             <widget class="QLabel" name="labelVideoTime">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -428,7 +472,7 @@ font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLabel" name="videoLength">
+             <widget class="QLabel" name="labelVideoLength">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -455,7 +499,7 @@ font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="videoName">
+             <widget class="QLabel" name="labelVideoName">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -536,16 +580,28 @@ QPushButton:enabled:pressed{
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="3">
-         <widget class="QLabel" name="videoLabel">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
+        <item row="3" column="1">
+         <widget class="QSlider" name="horizontalSlider">
+          <property name="styleSheet">
+           <string notr="true">QSlider:horizontal {
+        height: 20px;
+        background: transparent;
+        margin-top: 3px;
+        margin-bottom: 3px;
+}
+QSlider::handle:horizontal {
+        height: 20px;
+        min-width: 30px;
+        background: rgb(68, 69, 73);
+        margin-left: 15px;
+        margin-right: 15px;
+}
+QSlider::handle:horizontal:hover {
+        background: rgb(80, 80, 80);
+}</string>
           </property>
-          <property name="text">
-           <string>无数据</string>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
@@ -592,28 +648,19 @@ QPushButton:enabled:pressed{
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QSlider" name="horizontalSlider">
-          <property name="styleSheet">
-           <string notr="true">QSlider:horizontal {
-        height: 20px;
-        background: transparent;
-        margin-top: 3px;
-        margin-bottom: 3px;
-}
-QSlider::handle:horizontal {
-        height: 20px;
-        min-width: 30px;
-        background: rgb(68, 69, 73);
-        margin-left: 15px;
-        margin-right: 15px;
-}
-QSlider::handle:horizontal:hover {
-        background: rgb(80, 80, 80);
-}</string>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLabel" name="videoLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+          <property name="text">
+           <string>无数据</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -688,7 +735,6 @@ QMenu::icon {
      <string>Open</string>
     </property>
     <addaction name="actionOpen"/>
-    <addaction name="action"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="styleSheet">

@@ -133,7 +133,7 @@ void MainWindow::on_vehicleButton_clicked()
     QStringList argument;
     argument << "-c" << videoPath;
 
-    coreProcess -> start(program,argument);
+    coreProcess.start(program,argument);
 //    coreProcess -> waitForFinished();
 
 //    readCarText();

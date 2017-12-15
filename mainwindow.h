@@ -11,6 +11,10 @@
 #include <QTimer>
 #include <QProcess>
 #include <QDialog>
+#include <QDebug>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -24,27 +28,28 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    //æ’­æ”¾è§†é¢‘çš„å…¨å±€å˜é‡
+    //²¥·ÅÊÓÆµµÄÈ«¾Ö±äÁ¿
     QString videoPath;
-    QVBoxLayout * layout_video;//å¸ƒå±€
-    QMediaPlayer * player;   //æ’­æ”¾å™¨
-    QVideoWidget * videoWidget;   //è§†é¢‘æ’­æ”¾æ§ä»¶
+    QVBoxLayout * layout_video;//²¼¾Ö
+    QMediaPlayer * player;   //²¥·ÅÆ÷
+    QVideoWidget * videoWidget;   //ÊÓÆµ²¥·Å¿Ø¼ş
 
-    //æ’­æ”¾çŠ¶æ€ï¼Œtrueä¸ºæ’­æ”¾ï¼Œfalseä¸ºæš‚åœ
+    //²¥·Å×´Ì¬£¬trueÎª²¥·Å£¬falseÎªÔİÍ£
     bool play_state;
-    //æ˜¯å¦é‡æ–°è½½å…¥è§†é¢‘
+    //ÊÇ·ñÖØĞÂÔØÈëÊÓÆµ
     bool if_reload=false;
-    //ä¸Slideræœ‰å…³çš„æ’­æ”¾æ§åˆ¶å˜é‡
+    //ÓëSliderÓĞ¹ØµÄ²¥·Å¿ØÖÆ±äÁ¿
     QTimer * timer;
-    int maxValue = 1000;//è®¾ç½®è¿›åº¦æ¡çš„æœ€å¤§å€¼
+    int maxValue = 1000;//ÉèÖÃ½ø¶ÈÌõµÄ×î´óÖµ
 
     QString videoTitle;
     QString videoDate;
 
-    QProcess * coreProcess = new QProcess(this);
+    QProcess coreProcess;
 
     QDialog *about = new QDialog;
 
+    void readCarText();
 
 public slots:
     void openVideo();
@@ -58,6 +63,8 @@ private slots:
 
 
     void on_pedestrianButton_clicked();
+
+    void on_vehicleButton_clicked();
 
 private:
     Ui::MainWindow *ui;
