@@ -119,6 +119,10 @@ void MainWindow::metaDataAvailableChanged(bool available)
 
 void MainWindow::on_vehicleButton_clicked()
 {
+    ui->labelCarNumber->setText("NONE");
+    ui->labelSpeed->setText("NONE");
+    ui->labelPeopleNumber->setText("NONE");
+
     QString program = "./TOTEL-SE.exe";
     QStringList argument;
     argument << "-c" << videoPath;
@@ -126,47 +130,82 @@ void MainWindow::on_vehicleButton_clicked()
     coreProcess.start(program,argument);
 
     thread = new DateThead();
-    connect(thread,SIGNAL(sendCarNumber(QString)),this,SLOT(setCarNumber(QString)));
+    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    kind =1;
+    emit sendKind(kind);
     thread->start();
     ui->summaryButton->setEnabled(true);
 }
 
-void MainWindow::setCarNumber(QString carNumber)
-{
-    ui->labelCarNumber->setText(carNumber);
-}
-
 void MainWindow::on_pedestrianButton_clicked()
 {
+    ui->labelCarNumber->setText("NONE");
+    ui->labelSpeed->setText("NONE");
+    ui->labelPeopleNumber->setText("NONE");
+
     QString program = "./TOTEL-SE.exe";
     QStringList argument;
     argument << "-p" << videoPath;
 
     coreProcess.start(program,argument);
     thread = new DateThead();
-    connect(thread,SIGNAL(sendCarNumber(QString)),this,SLOT(setCarNumber(QString)));
+    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    kind =2;
+    emit sendKind(kind);
     thread->start();
     ui->summaryButton->setEnabled(true);
 }
-void MainWindow::setPeopleNumber(QString peopleNumber)
+
+void MainWindow::setLine(QString line)
 {
-    ui->labelPeopleNumber->setText(peopleNumber);
-}
-void MainWindow::setSpeed(QString speed)
-{
-    ui->labelSpeed->setText(speed);
+    QStringList temp = line.split(",");
+    switch (kind)
+    {
+        case 1:
+        {
+            if(!temp.isEmpty())
+            {
+                ui->labelCarNumber->setText(temp.at(1));
+                ui->labelSpeed->setText(temp.at(3));
+            }
+            break;
+        }
+        case 2:
+        {
+            if(!temp.isEmpty())
+                ui->labelPeopleNumber->setText(temp.at(1));
+        }
+        default:
+        {
+            if(!temp.isEmpty())
+            {
+                ui->labelCarNumber->setText(temp.at(1));
+                ui->labelPeopleNumber->setText(temp.at(3));
+            }
+            break;
+        }
+    }
 }
 
-void MainWindow::on_summaryButton_clicked()
+void MainWindow::on_flowButton_clicked()
 {
-    if(thread->isRunning())
-    {
-        thread->stop();
-        ui->summaryButton->setEnabled(false);
-    }
-//    QProcess sum;
-//    QString program = "./video_abstract.exe";
-//    QStringList argument;
-//    argument  << videoPath;
-//    sum.start(program,argument);
+    ui->labelCarNumber->setText("NONE");
+    ui->labelSpeed->setText("NONE");
+    ui->labelPeopleNumber->setText("NONE");
+
+    QString program = "./TOTEL-SE.exe";
+    QStringList argument;
+    argument << "-d" << videoPath;
+
+    coreProcess.start(program,argument);
+
+    thread = new DateThead();
+    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    kind = 3;
+    emit sendKind(kind);
+    thread->start();
+    ui->summaryButton->setEnabled(true);
 }

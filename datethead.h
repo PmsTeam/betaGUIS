@@ -20,12 +20,10 @@ private:
     int kind;
 
 signals:
-    void sendCarNumber(const QString &carNumber);
-    void sendPeopleNumber(const QString &peopleNumber);
-    void sendSpeed(const QString& speed);
+    void sendLine(const QString &carNumber);
 
 private slots:
-    void chooseKind();
+    void chooseKind(int kind);
 };
 
 #endif // DATETHEAD_H

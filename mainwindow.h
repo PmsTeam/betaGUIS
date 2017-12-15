@@ -49,16 +49,15 @@ public:
     QDialog *about = new QDialog;
 
     DateThead *thread;
+    int kind;
     void readCarText();
-
+signals:
+    void sendKind(int kind);
 public slots:
     void openVideo();
     void showAbout();
+    void setLine(QString line);
 
-private slots:
-    void setCarNumber(QString carNumber);
-    void setPeopleNumber(QString peopleNumber);
-    void setSpeed(QString speed);
     void on_playButton_clicked();
 
     void metaDataAvailableChanged(bool available);
@@ -68,7 +67,9 @@ private slots:
 
     void on_vehicleButton_clicked();
 
-    void on_summaryButton_clicked();
+
+private slots:
+    void on_flowButton_clicked();
 
 private:
     Ui::MainWindow *ui;
