@@ -12,8 +12,7 @@
 #include <QProcess>
 #include <QDialog>
 #include <QDebug>
-#include <iostream>
-#include <fstream>
+#include "datethead.h"
 using namespace std;
 
 namespace Ui {
@@ -49,6 +48,7 @@ public:
 
     QDialog *about = new QDialog;
 
+    DateThead *thread;
     void readCarText();
 
 public slots:
@@ -56,7 +56,9 @@ public slots:
     void showAbout();
 
 private slots:
-
+    void setCarNumber(QString carNumber);
+    void setPeopleNumber(QString peopleNumber);
+    void setSpeed(QString speed);
     void on_playButton_clicked();
 
     void metaDataAvailableChanged(bool available);
@@ -65,6 +67,8 @@ private slots:
     void on_pedestrianButton_clicked();
 
     void on_vehicleButton_clicked();
+
+    void on_summaryButton_clicked();
 
 private:
     Ui::MainWindow *ui;

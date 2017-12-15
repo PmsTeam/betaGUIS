@@ -248,7 +248,7 @@ QPushButton:enabled:pressed{
 </string>
           </property>
           <property name="text">
-           <string>视频摘要</string>
+           <string>视频摘要（线程）</string>
           </property>
          </widget>
         </item>

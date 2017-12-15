@@ -34,7 +34,8 @@ SOURCES += \
     home_analysis.cpp \
     main.cpp \
     mainwindow.cpp \
-    mytitlebar.cpp
+    mytitlebar.cpp \
+    datethead.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
     home.h \
     home_analysis.h \
     mainwindow.h \
-    mytitlebar.h
+    mytitlebar.h \
+    datethead.h
 
 FORMS += \
         mainwindow.ui \

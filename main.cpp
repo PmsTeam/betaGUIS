@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     //CommonHelper::setStyle("G:/study/QT/betaEyes/style.qss");//设置style
 
     MainWindow w;
+    w.setWindowTitle("YourEyes");
     w.show();
 
     return a.exec();

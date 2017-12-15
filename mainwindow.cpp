@@ -5,11 +5,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    this->setWindowTitle("YourEyes");
     ui->setupUi(this);
 
     ui->playButton->setEnabled(false);
     ui->fullButton->setEnabled(false);
+    ui->vehicleButton->setEnabled(false);
+    ui->pedestrianButton->setEnabled(false);
+
 
     connect(ui->actionOpen,SIGNAL(triggered(bool)),this,SLOT(openVideo()));
     connect(ui->aboutUs,SIGNAL(triggered(bool)),this,SLOT(showAbout()));
@@ -18,10 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    if(coreProcess)
-        coreProcess->close();
-    delete coreProcess;
-    delete ui;
+    delete thread;
 }
 
 
@@ -39,6 +38,7 @@ void MainWindow::showAbout()
 }
 void MainWindow::openVideo()
 {
+
     //选择视频文件
     videoPath = QFileDialog::getOpenFileName(this,tr("选择视频文件"),".",tr("视频格式(*.avi *.mp4 *.flv)"));
     QFile file(videoPath);
@@ -72,6 +72,8 @@ void MainWindow::openVideo()
     //play_state为true表示播放，false表示暂停
     play_state = true;
     //启用播放/暂停按钮，并将其文本设置为“暂停”
+    ui->vehicleButton->setEnabled(true);
+    ui->pedestrianButton->setEnabled(true);
     ui->playButton->setEnabled(true);
 
 //    ui->labelVideoName->setText(videoTitle);
@@ -82,6 +84,7 @@ void MainWindow::openVideo()
     ui->labelVideoLength->setGeometry(QRect(328, 240, 329, 27*4));  //四倍行距
     ui->labelVideoLength->setWordWrap(true);
     ui->labelVideoLength->setAlignment(Qt::AlignTop);
+
 
     //播放器开启
     player->play();
@@ -94,12 +97,12 @@ void MainWindow::on_playButton_clicked()
     if(play_state)
     {
         player->pause();
-        ui->playButton->setText("play");
+        ui->playButton->setText("播放");
     }
     else
     {
         player->play();
-        ui->playButton->setText("pause");
+        ui->playButton->setText("暂停");
     }
 
     play_state = !play_state;
@@ -114,44 +117,56 @@ void MainWindow::metaDataAvailableChanged(bool available)
     }
 }
 
-void MainWindow::on_pedestrianButton_clicked()
-{
-    QString program = "./TOTEL-SE.exe";
-    QStringList argument;
-    argument << "-c" << videoPath;
-
-    coreProcess -> start(program,argument);
-    coreProcess -> waitForFinished();
-
-
-}
-
-
 void MainWindow::on_vehicleButton_clicked()
 {
     QString program = "./TOTEL-SE.exe";
     QStringList argument;
     argument << "-c" << videoPath;
 
-    coreProcess -> start(program,argument);
-//    coreProcess -> waitForFinished();
+    coreProcess.start(program,argument);
 
-//    readCarText();
+    thread = new DateThead();
+    connect(thread,SIGNAL(sendCarNumber(QString)),this,SLOT(setCarNumber(QString)));
+    thread->start();
+    ui->summaryButton->setEnabled(true);
 }
 
-void MainWindow::readCarText()
+void MainWindow::setCarNumber(QString carNumber)
 {
-    QFile file("G:/study/QT/build-betaEyes-Desktop_Qt_5_9_2_MSVC2017_64bit-Debug/cache/out-car.txt");
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        qDebug()<<"Can't open the file!"<<endl;
-    }
-    while(file.flush())
-    {
-        while(!file.atEnd());
-        QByteArray line = file.readLine();
-        QString str(line);
-        qDebug()<< str;
-    }
+    ui->labelCarNumber->setText(carNumber);
+}
 
+void MainWindow::on_pedestrianButton_clicked()
+{
+    QString program = "./TOTEL-SE.exe";
+    QStringList argument;
+    argument << "-p" << videoPath;
+
+    coreProcess.start(program,argument);
+    thread = new DateThead();
+    connect(thread,SIGNAL(sendCarNumber(QString)),this,SLOT(setCarNumber(QString)));
+    thread->start();
+    ui->summaryButton->setEnabled(true);
+}
+void MainWindow::setPeopleNumber(QString peopleNumber)
+{
+    ui->labelPeopleNumber->setText(peopleNumber);
+}
+void MainWindow::setSpeed(QString speed)
+{
+    ui->labelSpeed->setText(speed);
+}
+
+void MainWindow::on_summaryButton_clicked()
+{
+    if(thread->isRunning())
+    {
+        thread->stop();
+        ui->summaryButton->setEnabled(false);
+    }
+//    QProcess sum;
+//    QString program = "./video_abstract.exe";
+//    QStringList argument;
+//    argument  << videoPath;
+//    sum.start(program,argument);
 }
