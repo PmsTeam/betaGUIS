@@ -158,6 +158,27 @@ void MainWindow::on_pedestrianButton_clicked()
     ui->summaryButton->setEnabled(true);
 }
 
+void MainWindow::on_flowButton_clicked()
+{
+    ui->labelCarNumber->setText("NONE");
+    ui->labelSpeed->setText("NONE");
+    ui->labelPeopleNumber->setText("NONE");
+
+    QString program = "./TOTEL-SE.exe";
+    QStringList argument;
+    argument << "-d" << videoPath;
+
+    coreProcess.start(program,argument);
+
+    thread = new DateThead();
+    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    kind = 3;
+    emit sendKind(kind);
+    thread->start();
+    ui->summaryButton->setEnabled(true);
+}
+
 void MainWindow::setLine(QString line)
 {
     QStringList temp = line.split(",");
@@ -187,25 +208,4 @@ void MainWindow::setLine(QString line)
             break;
         }
     }
-}
-
-void MainWindow::on_flowButton_clicked()
-{
-    ui->labelCarNumber->setText("NONE");
-    ui->labelSpeed->setText("NONE");
-    ui->labelPeopleNumber->setText("NONE");
-
-    QString program = "./TOTEL-SE.exe";
-    QStringList argument;
-    argument << "-d" << videoPath;
-
-    coreProcess.start(program,argument);
-
-    thread = new DateThead();
-    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
-    kind = 3;
-    emit sendKind(kind);
-    thread->start();
-    ui->summaryButton->setEnabled(true);
 }

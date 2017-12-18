@@ -9,9 +9,11 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTimer>
+#include <QTime>
 #include <QProcess>
 #include <QDialog>
 #include <QDebug>
+#include <QThread>
 #include "datethead.h"
 using namespace std;
 
