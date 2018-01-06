@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <QFile>
+#include <QFont>
+#include <QFontDatabase>
 
 class CommonHelper
 {

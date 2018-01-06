@@ -55,6 +55,7 @@ FORMS += \
 DISTFILES += \
     style.qss \
     res/icon.ico \
-    res/qtdemo.rc
+    res/qtdemo.rc \
+    res/方正悠黑_510M.ttf
 
 RC_FILE = res/qtdemo.rc

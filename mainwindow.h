@@ -14,6 +14,8 @@
 #include <QDialog>
 #include <QDebug>
 #include <QThread>
+#include <QMouseEvent>
+#include <QToolButton>
 #include "datethead.h"
 using namespace std;
 
@@ -40,19 +42,17 @@ public:
     //是否重新载入视频
     bool if_reload=false;
     //与Slider有关的播放控制变量
-    QTimer * timer;
-    int maxValue = 1000;//设置进度条的最大值
+    QTimer * progressSlderTimer;
+    int progressSlderMaxValue = 1000;//设置进度条的最大值
 
-    QString videoTitle;
-    QString videoDate;
+    QProcess coreProcess;//定义外部程序
 
-    QProcess coreProcess;
+    QDialog *about = new QDialog;//set about
 
-    QDialog *about = new QDialog;
-
-    DateThead *thread;
+    DateThead *thread;//set thread
     int kind;
     void readCarText();
+
 signals:
     void sendKind(int kind);
 public slots:
@@ -62,13 +62,9 @@ public slots:
 
     void on_playButton_clicked();
 
-    void metaDataAvailableChanged(bool available);
-
-
     void on_pedestrianButton_clicked();
 
     void on_vehicleButton_clicked();
-
 
 private slots:
     void on_flowButton_clicked();

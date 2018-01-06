@@ -20,9 +20,9 @@ private:
     int kind;
 
 signals:
-    void sendLine(const QString &carNumber);
+    void sendLine(const QString &carNumber);//输出一行
 
-private slots:
+public slots:
     void chooseKind(int kind);
 };
 

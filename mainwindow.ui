@@ -521,7 +521,7 @@ font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
 font: 63 12pt &quot;方正悠黑_510M&quot;;</string>
               </property>
               <property name="text">
-               <string>视频时长</string>
+               <string>视频路径</string>
               </property>
              </widget>
             </item>
@@ -657,7 +657,7 @@ QPushButton:enabled:pressed{
            </sizepolicy>
           </property>
           <property name="text">
-           <string>无数据</string>
+           <string/>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -732,85 +732,9 @@ QMenu::icon {
 }</string>
     </property>
     <property name="title">
-     <string>Open</string>
+     <string>文件</string>
     </property>
     <addaction name="actionOpen"/>
-   </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="styleSheet">
-     <string notr="true">QMenu {
-        border: 1px solid rgb(100, 100, 100);
-        background: rgb(68, 69, 73);
-}
-QMenu::item {
-        height: 22px;
-        padding: 0px 25px 0px 20px;
-}
-QMenu::item:enabled {
-        color: rgb(225, 225, 225);
-}
-QMenu::item:!enabled {
-        color: rgb(155, 155, 155);
-}
-QMenu::item:enabled:selected {
-        color: rgb(230, 230, 230);
-        background: rgba(255, 255, 255, 40);
-}
-QMenu::separator {
-        height: 1px;
-        background: rgb(100, 100, 100);
-}
-QMenu::indicator {
-        width: 13px;
-        height: 13px;
-}
-QMenu::icon {
-        padding-left: 2px;
-        padding-right: 2px;
-}</string>
-    </property>
-    <property name="title">
-     <string>View</string>
-    </property>
-    <addaction name="actionview"/>
-   </widget>
-   <widget class="QMenu" name="menuWindows">
-    <property name="styleSheet">
-     <string notr="true">QMenu {
-        border: 1px solid rgb(100, 100, 100);
-        background: rgb(68, 69, 73);
-}
-QMenu::item {
-        height: 22px;
-        padding: 0px 25px 0px 20px;
-}
-QMenu::item:enabled {
-        color: rgb(225, 225, 225);
-}
-QMenu::item:!enabled {
-        color: rgb(155, 155, 155);
-}
-QMenu::item:enabled:selected {
-        color: rgb(230, 230, 230);
-        background: rgba(255, 255, 255, 40);
-}
-QMenu::separator {
-        height: 1px;
-        background: rgb(100, 100, 100);
-}
-QMenu::indicator {
-        width: 13px;
-        height: 13px;
-}
-QMenu::icon {
-        padding-left: 2px;
-        padding-right: 2px;
-}</string>
-    </property>
-    <property name="title">
-     <string>Windows</string>
-    </property>
-    <addaction name="actionwindows"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="styleSheet">
@@ -846,53 +770,12 @@ QMenu::icon {
 }</string>
     </property>
     <property name="title">
-     <string>Help</string>
+     <string>帮助</string>
     </property>
-    <addaction name="actioncontent"/>
-   </widget>
-   <widget class="QMenu" name="menuAbout">
-    <property name="styleSheet">
-     <string notr="true">QMenu {
-        border: 1px solid rgb(100, 100, 100);
-        background: rgb(68, 69, 73);
-}
-QMenu::item {
-        height: 22px;
-        padding: 0px 25px 0px 20px;
-}
-QMenu::item:enabled {
-        color: rgb(225, 225, 225);
-}
-QMenu::item:!enabled {
-        color: rgb(155, 155, 155);
-}
-QMenu::item:enabled:selected {
-        color: rgb(230, 230, 230);
-        background: rgba(255, 255, 255, 40);
-}
-QMenu::separator {
-        height: 1px;
-        background: rgb(100, 100, 100);
-}
-QMenu::indicator {
-        width: 13px;
-        height: 13px;
-}
-QMenu::icon {
-        padding-left: 2px;
-        padding-right: 2px;
-}</string>
-    </property>
-    <property name="title">
-     <string>About</string>
-    </property>
-    <addaction name="aboutUs"/>
+    <addaction name="about"/>
    </widget>
    <addaction name="menuOpen"/>
-   <addaction name="menuView"/>
-   <addaction name="menuWindows"/>
    <addaction name="menuHelp"/>
-   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="styleSheet">
@@ -925,7 +808,7 @@ QMenu::icon {
   </action>
   <action name="actionOpen">
    <property name="text">
-    <string>打开</string>
+    <string>打开视频</string>
    </property>
   </action>
   <action name="actionview">
@@ -938,9 +821,9 @@ QMenu::icon {
     <string>windows</string>
    </property>
   </action>
-  <action name="actioncontent">
+  <action name="about">
    <property name="text">
-    <string>content</string>
+    <string>关于YourEyes</string>
    </property>
   </action>
   <action name="action">

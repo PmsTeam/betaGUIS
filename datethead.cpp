@@ -1,4 +1,6 @@
 #include "datethead.h"
+#include <QDir>
+#include <QCoreApplication>
 DateThead::DateThead(QObject *parent):
     QThread(parent)
 {
@@ -9,36 +11,42 @@ void DateThead::stop()
 {
     stopped = true;
 }
+
 void DateThead::run()
 {
-    QFile *file;
+    QString fileName;
     switch (kind)
     {
     case 1:
-        file = new QFile("./cache/Digest-Car.csv");
+        fileName = "/cache/Digest-Car.csv";
         break;
     case 2:
-        file = new QFile("./cache/Digest-People.csv");
+        fileName = "/cache/Digest-People.csv";
         break;
     default:
-        file = new QFile("./cache/Car-People.csv");
-        break;
+        fileName = "/cache/Car-People.csv";
     }
-    if (file->open(QIODevice :: ReadOnly))   //  以只读的方式打开
+    if(fileName == "")
+          return;
+    QFile file(QCoreApplication::applicationDirPath()+fileName);
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        qDebug()<<file.errorString();
+    }
+    else
     {
         QString line;
-        line = file->readLine();
-        while(!file->atEnd())
+        line = file.readLine();
+        while(!file.atEnd())
         {
-            line = file->readLine();
+            line = file.readLine();
             qDebug()<<line;
             emit sendLine(line);
             sleep(1);
-            file->flush();
-
+            file.flush();
         }
+        file.close();
     }
-    file->close();
     stopped = false;
 }
 
