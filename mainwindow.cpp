@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete thread;
+//    delete thread;
 }
 
 void MainWindow::showAbout()//显示关于
@@ -91,12 +91,12 @@ void MainWindow::on_playButton_clicked()
     if(play_state)
     {
         player->pause();
-        ui->playButton->setText("播放");
+        ui->playButton->setText(QStringLiteral("播放"));
     }
     else
     {
         player->play();
-        ui->playButton->setText("暂停");
+        ui->playButton->setText(QStringLiteral("暂停"));
     }
 
     play_state = !play_state;
@@ -104,63 +104,44 @@ void MainWindow::on_playButton_clicked()
 //点击车辆识别按钮行为
 void MainWindow::on_vehicleButton_clicked()
 {//初始化车数、人数、速率文本
-    ui->labelCarNumber->setText("NONE");
-    ui->labelSpeed->setText("NONE");
-    ui->labelPeopleNumber->setText("NONE");
+    initDate("unnecessary date");
 
-    QString program = "TOTEL-SE.exe";//打开外部程序
-    QStringList argument;
-    argument << "-c" << videoPath;
-
-    coreProcess.start(program,argument);
-
-    thread = new DateThead();
-    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    datethread = new DateThead();
+    datethread->setVideoPath(videoPath);
+    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
     kind = 1;
     emit sendKind(kind);
-    thread->start();
+
+    datethread->start();
 }
 
 void MainWindow::on_pedestrianButton_clicked()
 {
-    ui->labelCarNumber->setText("NONE");
-    ui->labelSpeed->setText("NONE");
-    ui->labelPeopleNumber->setText("NONE");
+    initDate("unnecessary date");
 
-    QString program = "./TOTEL-SE.exe";
-    QStringList argument;
-    argument << "-p" << videoPath;
-
-    coreProcess.start(program,argument);
-    thread = new DateThead();
-    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
-    kind =2;
+    datethread = new DateThead();
+    datethread->setVideoPath(videoPath);
+    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
+    kind = 2;
     emit sendKind(kind);
-    thread->start();
-    ui->summaryButton->setEnabled(true);
+
+    datethread->start();
 }
 
 void MainWindow::on_flowButton_clicked()
 {
-    ui->labelCarNumber->setText("NONE");
-    ui->labelSpeed->setText("NONE");
-    ui->labelPeopleNumber->setText("NONE");
+    initDate("unnecessary date");
 
-    QString program = "./TOTEL-SE.exe";
-    QStringList argument;
-    argument << "-d" << videoPath;
-
-    coreProcess.start(program,argument);
-
-    thread = new DateThead();
-    connect(thread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),thread,SLOT(chooseKind(int)));
+    datethread = new DateThead();
+    datethread->setVideoPath(videoPath);
+    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
     kind = 3;
     emit sendKind(kind);
-    thread->start();
-    ui->summaryButton->setEnabled(true);
+
+    datethread->start();
 }
 
 void MainWindow::setLine(QString line)
@@ -181,6 +162,7 @@ void MainWindow::setLine(QString line)
         {
             if(!temp.isEmpty())
                 ui->labelPeopleNumber->setText(temp.at(1));
+            break;
         }
         default:
         {
@@ -189,7 +171,13 @@ void MainWindow::setLine(QString line)
                 ui->labelCarNumber->setText(temp.at(1));
                 ui->labelPeopleNumber->setText(temp.at(3));
             }
-            break;
         }
     }
+}
+
+void MainWindow::initDate(QString initString)
+{
+    ui->labelCarNumber->setText(initString);
+    ui->labelSpeed->setText(initString);
+    ui->labelPeopleNumber->setText(initString);
 }

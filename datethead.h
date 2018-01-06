@@ -1,9 +1,10 @@
-#ifndef DATETHEAD_H
+﻿#ifndef DATETHEAD_H
 #define DATETHEAD_H
 #include <QThread>
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include <QProcess>
 
 class DateThead:public QThread
 {
@@ -11,6 +12,7 @@ class DateThead:public QThread
 public:
     explicit DateThead(QObject *parent = 0);
     void stop();
+    void setVideoPath(QString path);
 
 protected:
     void run();
@@ -18,6 +20,8 @@ protected:
 private:
     volatile bool stopped;
     int kind;
+
+    QString videoPath;
 
 signals:
     void sendLine(const QString &carNumber);//输出一行

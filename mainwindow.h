@@ -45,11 +45,9 @@ public:
     QTimer * progressSlderTimer;
     int progressSlderMaxValue = 1000;//设置进度条的最大值
 
-    QProcess coreProcess;//定义外部程序
-
     QDialog *about = new QDialog;//set about
 
-    DateThead *thread;//set thread
+    DateThead *datethread;//set datethread
     int kind;
     void readCarText();
 
@@ -71,6 +69,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    void initDate(QString initString);
 };
 
 #endif // MAINWINDOW_H

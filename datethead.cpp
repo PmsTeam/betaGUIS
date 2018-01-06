@@ -1,4 +1,4 @@
-#include "datethead.h"
+﻿#include "datethead.h"
 #include <QDir>
 #include <QCoreApplication>
 DateThead::DateThead(QObject *parent):
@@ -14,38 +14,26 @@ void DateThead::stop()
 
 void DateThead::run()
 {
-    QString fileName;
+    QProcess coreProcess;
+    QString program = "TOTEL-SE.exe";
+    QStringList arguments;
     switch (kind)
     {
     case 1:
-        fileName = "/cache/Digest-Car.csv";
+        arguments << "-c";
         break;
     case 2:
-        fileName = "/cache/Digest-People.csv";
-        break;
+        arguments << "-p";
     default:
-        fileName = "/cache/Car-People.csv";
+        arguments << "-d";
+        break;
     }
-    if(fileName == "")
-          return;
-    QFile file(QCoreApplication::applicationDirPath()+fileName);
-    if(!file.open(QIODevice::ReadOnly))
+    arguments << videoPath;
+    coreProcess.start(program,arguments);
+    while(coreProcess.waitForReadyRead(3000))
     {
-        qDebug()<<file.errorString();
-    }
-    else
-    {
-        QString line;
-        line = file.readLine();
-        while(!file.atEnd())
-        {
-            line = file.readLine();
-            qDebug()<<line;
-            emit sendLine(line);
-            sleep(1);
-            file.flush();
-        }
-        file.close();
+        QString line = coreProcess.readAllStandardOutput();
+        emit sendLine(line);
     }
     stopped = false;
 }
@@ -53,4 +41,9 @@ void DateThead::run()
 void DateThead::chooseKind(int kind)
 {
     this->kind = kind;
+}
+
+void DateThead::setVideoPath(QString path)
+{
+    this->videoPath = path;
 }
