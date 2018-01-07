@@ -14,26 +14,26 @@ void DateThead::stop()
 
 void DateThead::run()
 {
-    QProcess coreProcess;
-    QString program = "TOTEL-SE.exe";
-    QStringList arguments;
+    QProcess coreProcess;//外部程序
+    QString program = "TOTEL-SE.exe";//程序名
+    QStringList arguments;//命令行参数
     switch (kind)
     {
     case 1:
-        arguments << "-c";
+        arguments << "-c";//车辆识别
         break;
     case 2:
-        arguments << "-p";
-    default:
-        arguments << "-d";
+        arguments << "-p";//行人识别
         break;
+    default:
+        arguments << "-d";//人车识别
     }
     arguments << videoPath;
-    coreProcess.start(program,arguments);
+    coreProcess.start(program,arguments);//程序执行
     while(coreProcess.waitForReadyRead(3000))
     {
-        QString line = coreProcess.readAllStandardOutput();
-        emit sendLine(line);
+        QString line = coreProcess.readAllStandardOutput();//读取一行数据
+        emit sendLine(line);//传送数据
     }
     stopped = false;
 }

@@ -28,34 +28,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    home.cpp \
-    home_analysis.cpp \
-    home.cpp \
-    home_analysis.cpp \
     main.cpp \
     mainwindow.cpp \
     mytitlebar.cpp \
-    datethead.cpp
+    datethead.cpp \
+    customslider.cpp
 
 HEADERS += \
         mainwindow.h \
-    home.h \
-    home_analysis.h \
-    home.h \
-    home_analysis.h \
     mainwindow.h \
     mytitlebar.h \
-    datethead.h
+    datethead.h \
+    customslider.h
 
 FORMS += \
-        mainwindow.ui \
-    home.ui \
-    home_analysis.ui
+        mainwindow.ui
 
 DISTFILES += \
-    style.qss \
     res/icon.ico \
     res/qtdemo.rc \
-    res/方正悠黑_510M.ttf
+    res/方正悠黑_510M.ttf \
+    firststyle.qss
 
 RC_FILE = res/qtdemo.rc

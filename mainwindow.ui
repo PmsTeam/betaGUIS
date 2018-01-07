@@ -581,7 +581,7 @@ QPushButton:enabled:pressed{
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QSlider" name="horizontalSlider">
+         <widget class="CustomSlider" name="horizontalSlider">
           <property name="styleSheet">
            <string notr="true">QSlider:horizontal {
         height: 20px;
@@ -602,49 +602,6 @@ QSlider::handle:horizontal:hover {
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QPushButton" name="fullButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-        border-radius: 4px;
-        border: none;
-        width: 75px;
-        height: 25px;
-	font: 63 9pt &quot;方正悠黑_510M&quot;;
-}
-QPushButton:enabled {
-        background: rgb(68, 69, 73);
-        color: rgb(227, 234, 242);
-}
-QPushButton:!enabled {
-        background: rgb(100, 100, 100);
-        color: rgb(227, 234, 242);
-}
-QPushButton:enabled:hover{
-        background: rgb(85, 85, 85);
-}
-QPushButton:enabled:pressed{
-        background: rgb(80, 80, 80);
-}
-</string>
-          </property>
-          <property name="text">
-           <string>全屏</string>
           </property>
          </widget>
         </item>
@@ -833,6 +790,13 @@ QMenu::icon {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CustomSlider</class>
+   <extends>QSlider</extends>
+   <header location="global">customslider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

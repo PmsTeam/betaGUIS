@@ -1,9 +1,6 @@
-QWidget#centralWidget {
+﻿QWidget#centralWidget {
         background: rgb(50, 50, 50);
 }
-
-
-
 QWidget#cameraWidget {
 
         border: 1px solid rgb(80, 80, 80);

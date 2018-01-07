@@ -17,6 +17,7 @@
 #include <QMouseEvent>
 #include <QToolButton>
 #include "datethead.h"
+#include "customslider.h"
 using namespace std;
 
 namespace Ui {
@@ -42,9 +43,9 @@ public:
     //是否重新载入视频
     bool if_reload=false;
     //与Slider有关的播放控制变量
-    QTimer * progressSlderTimer;
-    int progressSlderMaxValue = 1000;//设置进度条的最大值
-
+    QTimer * videoSlderTimer;
+    int maxValue = 1000;//设置进度条的最大值
+    //与Slider有关的播放控函数
     QDialog *about = new QDialog;//set about
 
     DateThead *datethread;//set datethread
@@ -59,18 +60,20 @@ public slots:
     void setLine(QString line);
 
     void on_playButton_clicked();
-
     void on_pedestrianButton_clicked();
-
     void on_vehicleButton_clicked();
 
-private slots:
+    void onTimerOut();
+    void horizontalSlider_clicked();
+    void horizontalSlider_moved();
+    void horizontalSlider_released();
     void on_flowButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     void initDate(QString initString);
+    void runCoreProcess(int kind);
 };
 
 #endif // MAINWINDOW_H

@@ -8,11 +8,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->playButton->setEnabled(false);//播放按钮先用不了
-    ui->fullButton->setEnabled(false);//全屏按钮先用不了
     ui->vehicleButton->setEnabled(false);//车辆识别按钮先用不了
     ui->pedestrianButton->setEnabled(false);//行人识别按钮先用不了
     ui->summaryButton->setEnabled(false);//视频摘要按钮先用不了
     ui->flowButton->setEnabled(false);//人车识别按钮先用不了
+    ui->horizontalSlider->setEnabled(false);
+    //播放器连接槽函数
+    connect(ui->horizontalSlider,&CustomSlider::costomSliderClicked,this,&MainWindow::horizontalSlider_clicked);
+    connect(ui->horizontalSlider,&CustomSlider::sliderMoved,this,&MainWindow::horizontalSlider_moved);
+    connect(ui->horizontalSlider,&CustomSlider::sliderReleased,this,&MainWindow::horizontalSlider_released);
 
     connect(ui->actionOpen,SIGNAL(triggered(bool)),this,SLOT(openVideo()));//打开视频按键的信号槽连接
     connect(ui->about,SIGNAL(triggered(bool)),this,SLOT(showAbout()));//关于按键的信号槽链接
@@ -20,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-//    delete thread;
+
 }
 
 void MainWindow::showAbout()//显示关于
@@ -38,7 +42,7 @@ void MainWindow::showAbout()//显示关于
 void MainWindow::openVideo()
 {
     //选择视频文件
-    videoPath = QFileDialog::getOpenFileName(this,tr("选择视频文件"),".",tr("视频格式(*.avi *.mp4 *.flv)"));
+    videoPath = QFileDialog::getOpenFileName(this,QStringLiteral("选择视频文件"),".",tr("视频格式(*.avi *.mp4 *.flv)"));
     QFile file(videoPath);//视频文件
     if(!file.open(QIODevice::ReadOnly))//如果视频打开失败
     {
@@ -50,6 +54,7 @@ void MainWindow::openVideo()
         delete layout_video;
         delete player;
         delete videoWidget;
+        delete videoSlderTimer;
     }
     if_reload = true;
 
@@ -81,8 +86,16 @@ void MainWindow::openVideo()
     ui->labelVideoLength->setGeometry(QRect(328, 240, 329, 27*4));  //四倍行距
     ui->labelVideoLength->setWordWrap(true);
     ui->labelVideoLength->setAlignment(Qt::AlignTop);
+
+    ui->horizontalSlider->setEnabled(true);
+    ui->horizontalSlider->setRange(0,maxValue);
+    videoSlderTimer = new QTimer();
+    videoSlderTimer->setInterval(1000);
+    videoSlderTimer->start();
+    connect(videoSlderTimer, SIGNAL(timeout()), this, SLOT(onTimerOut()));
     //播放器开启
     player->play();
+    initDate("unnecessary date");
 }
 //点击播放按钮的行为
 void MainWindow::on_playButton_clicked()
@@ -101,76 +114,45 @@ void MainWindow::on_playButton_clicked()
 
     play_state = !play_state;
 }
-//点击车辆识别按钮行为
-void MainWindow::on_vehicleButton_clicked()
-{//初始化车数、人数、速率文本
-    initDate("unnecessary date");
 
-    datethread = new DateThead();
-    datethread->setVideoPath(videoPath);
-    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
-    kind = 1;
-    emit sendKind(kind);
-
-    datethread->start();
+void MainWindow::on_vehicleButton_clicked()//点击车辆识别按钮行为
+{
+    runCoreProcess(1);
 }
 
-void MainWindow::on_pedestrianButton_clicked()
+void MainWindow::on_pedestrianButton_clicked()//点击行人识别按钮行为
 {
-    initDate("unnecessary date");
-
-    datethread = new DateThead();
-    datethread->setVideoPath(videoPath);
-    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
-    kind = 2;
-    emit sendKind(kind);
-
-    datethread->start();
+    runCoreProcess(2);
 }
 
-void MainWindow::on_flowButton_clicked()
+void MainWindow::on_flowButton_clicked()//点击人车识别按钮行为
 {
-    initDate("unnecessary date");
-
-    datethread = new DateThead();
-    datethread->setVideoPath(videoPath);
-    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
-    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
-    kind = 3;
-    emit sendKind(kind);
-
-    datethread->start();
+    runCoreProcess(3);
 }
 
 void MainWindow::setLine(QString line)
 {
     QStringList temp = line.split(",");
-    switch (kind)
+    if(!temp.isEmpty()&&temp.size()!=1)
     {
+        switch (kind)
+        {
         case 1:
         {
-            if(!temp.isEmpty())
-            {
-                ui->labelCarNumber->setText(temp.at(1));
-                ui->labelSpeed->setText(temp.at(3));
-            }
+            ui->labelCarNumber->setText(temp.at(1));
+            ui->labelSpeed->setText(temp.at(3));
             break;
         }
         case 2:
         {
-            if(!temp.isEmpty())
-                ui->labelPeopleNumber->setText(temp.at(1));
+            ui->labelPeopleNumber->setText(temp.at(1));
             break;
         }
         default:
         {
-            if(!temp.isEmpty())
-            {
-                ui->labelCarNumber->setText(temp.at(1));
-                ui->labelPeopleNumber->setText(temp.at(3));
-            }
+            ui->labelCarNumber->setText(temp.at(1));
+            ui->labelPeopleNumber->setText(temp.at(3));
+        }
         }
     }
 }
@@ -180,4 +162,39 @@ void MainWindow::initDate(QString initString)
     ui->labelCarNumber->setText(initString);
     ui->labelSpeed->setText(initString);
     ui->labelPeopleNumber->setText(initString);
+}
+
+void MainWindow::runCoreProcess(int kind)
+{
+    initDate("unnecessary date");
+    datethread = new DateThead();
+    datethread->setVideoPath(videoPath);
+    connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
+    connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
+    emit sendKind(kind);
+
+    datethread->start();
+}
+
+void MainWindow::onTimerOut()
+{
+    ui->horizontalSlider->setValue(player->position()*maxValue/player->duration());
+}
+
+void MainWindow::horizontalSlider_clicked()
+{
+    player->setPosition(ui->horizontalSlider->value()*player->duration()/maxValue);
+}
+
+void MainWindow::horizontalSlider_moved()
+{
+    //暂时停止计时器，在用户拖动过程中不修改slider的值
+    videoSlderTimer->stop();
+    player->setPosition(ui->horizontalSlider->value()*player->duration()/maxValue);
+}
+
+void MainWindow::horizontalSlider_released()
+{
+    //用户释放滑块后，重启定时器
+    videoSlderTimer->start();
 }
