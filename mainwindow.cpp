@@ -135,7 +135,7 @@ void MainWindow::setLine(QString line)
     QStringList temp = line.split(",");
     if(!temp.isEmpty()&&temp.size()!=1)
     {
-        switch (kind)
+        switch (this->kind)
         {
         case 1:
         {
@@ -164,14 +164,15 @@ void MainWindow::initDate(QString initString)
     ui->labelPeopleNumber->setText(initString);
 }
 
-void MainWindow::runCoreProcess(int kind)
+void MainWindow::runCoreProcess(int kinds)
 {
     initDate("unnecessary date");
     datethread = new DateThead();
     datethread->setVideoPath(videoPath);
     connect(datethread,SIGNAL(sendLine(QString)),this,SLOT(setLine(QString)));
     connect(this,SIGNAL(sendKind(int)),datethread,SLOT(chooseKind(int)));
-    emit sendKind(kind);
+    kind = kinds;
+    emit sendKind(kinds);
 
     datethread->start();
 }
