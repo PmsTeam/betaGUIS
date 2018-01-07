@@ -130,6 +130,12 @@ void MainWindow::on_flowButton_clicked()//点击人车识别按钮行为
     runCoreProcess(3);
 }
 
+void MainWindow::on_summaryButton_clicked()
+{
+    QProcess videoSummary;
+    videoSummary.start("summary.exe");
+}
+
 void MainWindow::setLine(QString line)
 {
     QStringList temp = line.split(",");

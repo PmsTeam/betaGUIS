@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+ï»¿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -32,20 +32,20 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    //²¥·ÅÊÓÆµµÄÈ«¾Ö±äÁ¿
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½È«ï¿½Ö±ï¿½ï¿½ï¿½
     QString videoPath;
-    QVBoxLayout * layout_video;//²¼¾Ö
-    QMediaPlayer * player;   //²¥·ÅÆ÷
-    QVideoWidget * videoWidget;   //ÊÓÆµ²¥·Å¿Ø¼þ
+    QVBoxLayout * layout_video;//ï¿½ï¿½ï¿½ï¿½
+    QMediaPlayer * player;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    QVideoWidget * videoWidget;   //ï¿½ï¿½Æµï¿½ï¿½ï¿½Å¿Ø¼ï¿½
 
-    //²¥·Å×´Ì¬£¬trueÎª²¥·Å£¬falseÎªÔÝÍ£
+    //ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½trueÎªï¿½ï¿½ï¿½Å£ï¿½falseÎªï¿½ï¿½Í£
     bool play_state;
-    //ÊÇ·ñÖØÐÂÔØÈëÊÓÆµ
+    //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
     bool if_reload=false;
-    //ÓëSliderÓÐ¹ØµÄ²¥·Å¿ØÖÆ±äÁ¿
+    //ï¿½ï¿½Sliderï¿½Ð¹ØµÄ²ï¿½ï¿½Å¿ï¿½ï¿½Æ±ï¿½ï¿½ï¿½
     QTimer * videoSlderTimer;
-    int maxValue = 1000;//ÉèÖÃ½ø¶ÈÌõµÄ×î´óÖµ
-    //ÓëSliderÓÐ¹ØµÄ²¥·Å¿Øº¯Êý
+    int maxValue = 1000;//ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+    //ï¿½ï¿½Sliderï¿½Ð¹ØµÄ²ï¿½ï¿½Å¿Øºï¿½ï¿½ï¿½
     QDialog *about = new QDialog;//set about
 
     DateThead *datethread;//set datethread
@@ -68,6 +68,9 @@ public slots:
     void horizontalSlider_moved();
     void horizontalSlider_released();
     void on_flowButton_clicked();
+
+private slots:
+    void on_summaryButton_clicked();
 
 private:
     Ui::MainWindow *ui;
